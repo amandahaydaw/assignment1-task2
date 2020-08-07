@@ -1,0 +1,23 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "This is package for assignment 1 task 2",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Amanda.haydaw",
+  "license": "ISC",
+  "dependencies": {
+    "countdowntimer": "^2.0.1",
+    "esri-leaflet": "^2.4.1",
+    "express": "^4.17.1",
+    "leaflet-map": "^0.2.1",
+    "leaflet-search": "^2.9.8",
+    "mongoose": "^5.9.27"
+  },
+  "devDependencies": {},
+  "keywords": []
+}
+
