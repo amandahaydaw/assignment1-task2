@@ -1,1 +1,2 @@
-# assignment1-task2
+run npm start 
+open localhost:3030/map
