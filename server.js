@@ -1,28 +1,24 @@
-let express=require('express');
-const mongoose = require('mongoose');
-let app=express();
-let moment=require('moment');
+let express = require('express');
+let app = express();
+let moment = require('moment');
 
-
-var log=function(message){
-    var time=moment().format()
-    console.log('['+time+']' +''+ message)
+//printing logs 
+var log = function (logMessage) {
+    var time = moment().format()
+    console.log('[' + time + ']' + '' + logMessage)
 }
+//dirrect app to fetch relevent files 
+app.use(express.static(__dirname + '/public'));
 
-app.use(express.static(__dirname+'/public'));
 
-
-
-app.get('/map', function(req, res) {
+//set endpoint to html file
+app.get('/map', function (req, res) {
     res.sendFile(__dirname + '/public/index.html');
 
 });
 
 
-
-
-
-
-let port=3030;
+//port
+let port = 3030;
 app.listen(port)
-log(' Server listening on port '+port)
+log(' Server listening on http://' + "localhost" + ':' + port)

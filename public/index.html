@@ -3,10 +3,8 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Uber App</title>
+  <title>Welcome to Uber App</title>
   <link rel="icon" href="uber.png">
-
-
   <!-- Load Leaflet from CDN -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -50,31 +48,37 @@
 
     #map {
       position: absolute;
-      top: 148px;
-      bottom: 148px;
-      right: 148px;
-      left: 148px;
+      top: 160px;
+      bottom: 160px;
+      right: 160px;
+      left: 160px;
     }
 
-    #myButton02,
-    #myButton03 {
+    #btn1,
+    #Btn2,
+    #Btn3 {
+      width: 20;
+      height: 7%;
+      font-size: 20px;
 
+    }
 
-      width: auto;
-      height: 5%;
+    button:hover {
+      background-color: yellow;
+      font-weight: 600;
     }
   </style>
 </head>
 
 <body>
-  <h2 style="color: seashell;">Uber App</h2>
+  <h2 style="color: seashell;">Welcome to Uber App</h2>
   <div id="map"></div>
   <script src="map.js"></script>
   <script src="env.js"></script>
-  <div id="button">
-    <button id="myButton02">Find Driver</button>
-    <button id="myButton03">Cancel Ride</button>
-    <div id="counter" style="color:red;font-size: 19px;">Time:
+  <div id="btn1">
+    <button id="Btn2">Find Driver</button>
+    <button id="Btn3">Cancel Ride</button>
+    <div id="timer" style="color:red;font-size: 20px;">Time:
       <span id="secs"></span></div>
 
   </div>

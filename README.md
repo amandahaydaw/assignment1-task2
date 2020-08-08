@@ -18,7 +18,6 @@ run 'npm Install'
 run node server.js or nodemon server.js
 open webpage and navigate to http://localhost:3030/map
 
-Preview:
 
 
 Contributions:
