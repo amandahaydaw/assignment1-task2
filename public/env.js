@@ -38,6 +38,7 @@ let results = L.layerGroup().addTo(map).bindPopup('Search Location');
 searches.on('results', function (data) {
 
   results.clearLayers();
+  
   for (var i = data.results.length - 1; i >= 0; i--) {
     results.addLayer(L.marker(data.results[i].latlng));
   }
@@ -64,7 +65,8 @@ $(document).ready(function () {
       //if time reached 0 then display message that driver arrived 
       if (time <= 0) {
         clearInterval(timer);
-        alert('Driver arrived!, Please find your way to the car').html(style.color = "red");
+        let POPUpmessage = 'Driver arrived!, Please find your way to the car';
+        alert(POPUpmessage);
         return;
       }
 
