@@ -41,6 +41,6 @@ setTimeout(function(){
     InsertMessage('SETTING TIME OUT')},10000);
 
 //port
-let port = 3030;
+let port = 3000;
 app.listen(port)
 log(' Server listening on http://' + "localhost" + ':' + port)
