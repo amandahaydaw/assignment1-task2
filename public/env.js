@@ -6,6 +6,8 @@ let Driver3 = [-37.59751, 144.92811];//199-219 Craigieburn Rd, Craigieburn VIC 3
 let size = 36;
 let time;
 let timer;
+let userID = null;
+
 // initialize the map with zoom 13
 let map = L.map('map').setView(myLocation, 13);
 //creating geocoding control and then adding it to the map
@@ -38,7 +40,7 @@ let results = L.layerGroup().addTo(map).bindPopup('Search Location');
 searches.on('results', function (data) {
 
   results.clearLayers();
-  
+
   for (var i = data.results.length - 1; i >= 0; i--) {
     results.addLayer(L.marker(data.results[i].latlng));
   }
@@ -79,3 +81,62 @@ $(document).ready(function () {
     resetEverything();
   });
 });
+
+
+// fetching messages/journals from Database
+const fetchMessages = function () {
+  $.get('/messages', function (messages) {
+    messages.forEach((messageslist) => {
+      $('#messageOutput').append('<div style="background-color: transparent;color: white;">' + messageslist.message + '</div>');
+    });
+
+
+  })
+}
+
+//clicking on post message
+$(document).ready(function () {
+  fetchMessages();
+  $('#messageOutput').hide()
+  $('#btnMessage').click(() => {
+    $('#messageOutput').show()
+    // $('#btnMessage').hide()
+    let message = $('#messageBox').val()
+    let data = {
+      message
+    }
+    console.log(message)
+    $.get('/message', data, function () {
+
+    })
+
+    $('#messageOutput').empty();
+    fetchMessages();
+
+  })
+})
+
+
+
+//sign in messages
+const SignIn = () => {
+  // $('#messageOutput').hide()
+  let userName = $('#USERNAME').val()
+  //username validation present or not
+  if (userName.length == '') {
+    alert("Username field is required");
+    $("#USERNAME").focus();
+  } else {
+    userID = userName
+  }
+  //check if no username enetered then display nothing 
+  if (userName.length == null && userName.length < 0) {
+    $('#loginUser').hide()
+  }
+  else {
+    userID = userName
+  }
+  $('#login').hide()
+  $('#loginUser').html('Hi ' + userID)
+
+}

@@ -1,3 +1,5 @@
+//database connection 
+const MongoClient = require('mongodb').MongoClient;
 let express = require('express');
 let app = express();
 let moment = require('moment');
@@ -16,29 +18,48 @@ app.get('/map', function (req, res) {
     res.sendFile(__dirname + '/public/index.html');
 
 });
-//collection to handle messages
-let collectionMessages;
-//database connection 
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://Uber:123A@cluster0.0ncih.mongodb.net/DBSIT725?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
 
 
 
-client.connect(err => {
-    collectionMessages = client.db("DBSIT725").collection("messages");
+
+const uri = "mongodb+srv://Uber:123A@sit725.0ncih.mongodb.net/AssigSIT725?retryWrites=true&w=majority";
+
+const client = new MongoClient(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 });
 
 
-//create function message to insert data into db
-const InsertMessage=(message)=>{
-    collectionMessages.insertOne({message:message})
+//collection to handle messages
+let collectionMessage;
+
+client.connect(err => {
+    collectionMessage = client.db("AssigSIT725").collection("messages");
+});
+
+
+
+const insertMessage = (message) => {
+    collectionMessage.insertOne({ message: message });
 }
 
+const retrieveMessages = (res) => {
+    collectionMessage.find().toArray(function (err, result) {
+        if (err) throw err;
+        res.send(result)
+    });
+}
+app.get('/message', function (req, res) {
+    let message = req.query.message
+    insertMessage(message)
+    res.send('Message added')
+})
 
-//setting time out 
-setTimeout(function(){
-    InsertMessage('SETTING TIME OUT')},10000);
+app.get('/messages', function (req, res) {
+    retrieveMessages(res)
+})
+
+
 
 //port
 let port = 3000;

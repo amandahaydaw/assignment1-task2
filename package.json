@@ -17,6 +17,7 @@
     "leaflet-map": "^0.2.1",
     "leaflet-search": "^2.9.8",
     "moment": "^2.27.0",
+    "mongodb": "^3.6.0",
     "mongoose": "^5.9.27"
   },
   "devDependencies": {},

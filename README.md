@@ -13,7 +13,7 @@ Clone from GitHub 'git clone git@github.com:amandahaydaw/assignment1-task2.git'
 direct to Assignment folder 'cd assignment1-task2' at your terminal
 run 'npm start' 
 run node server.js or nodemon server.js
-open webpage and navigate to http://localhost:3030/map
+open webpage and navigate to http://localhost:3000
 
 Contributions:
 Node.js - Express, leaflet for MapTiles and Uber car Icon
